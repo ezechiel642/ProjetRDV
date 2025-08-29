@@ -1,0 +1,122 @@
+.navbar-brand img {
+  border-radius: 50%; /* permet de rendre le logo rond */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Couleur blanche pour les liens du menu */
+.navbar .nav-link {
+  color: white !important;
+}
+
+/* Change la couleur du hamburger en blanc */
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-toggler {
+  border-color: white;
+  background-color: transparent;
+}
+
+/* texte invisible et leger deplacement */
+.slogan-hover {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 0.3s ease-in-out;
+  pointer-events: none;/*desactive l'effet si le pointer ne survole pas le hero*/
+}
+
+/* Quand on survole la section contenant le texte */
+.hero-section:hover .slogan-hover {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+
+
+
+/* Couleur grise pour le texte actif ou au survol */
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+  color: rgba(221, 221, 221, 0.548) !important; /* blanc légèrement gris au survol */
+}
+
+/* Couleur blanche pour le nom de l'appli KamerCoach */
+.navbar .navbar-brand span {
+  color: white !important;
+}
+
+.hero-section {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  
+  .hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .hero-section .container {
+    position: relative;
+    z-index: 2;
+  }
+/*card de  a propos*/
+  .zoom-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .zoom-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+  }
+
+/*comment ca marche*/
+/* Style bulle */
+.bubble {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  position: relative;
+  max-width: 500px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 15px 15px 0;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+}
+
+/* Couleur flèches */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #007bff;
+  background-size: 60% 60%;
+  border-radius: 50%;
+  padding: 15px;
+}
+
+/* Indicateurs ronds */
+.carousel-indicators button {
+  background-color: #007bff;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+
+  
