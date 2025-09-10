@@ -6,6 +6,9 @@ use App\Livewire\Settings\Profile;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FirstController;
 
+Route::post('/logout', [FirstController::class, 'logout'])->name('logout');
+
+
 Route::get('/', function () {
     return view('land');
 })->name('land');
@@ -26,6 +29,9 @@ Route::get("/connection", function(){
 });
 Route::post('/connexion', [FirstController::class, 'connexion'])->name('connexion');
 
+Route::view("/adminAuth", "adminAuth");
+Route::post('/adminAuth', [FirstController::class, 'adminAuth'])->name('adminAuth');
+
 
 Route::view("/inscription", 'inscription');
 Route::post('/inscription', [FirstController::class, 'inscription'])->name('inscription');
@@ -37,21 +43,35 @@ Route::post('forgotpwd', [FirstController::class, 'forgotpwd'])->name('forgotpwd
 Route::view("/redirectionUser", "redirectionUser");
 Route::post('/redirectionUser', [FirstController::class, 'redirectionUser'])->name('redirectionUser');
 
+Route::view("/regisDoc", "regisDoc");
+Route::post('/regisDoc', [FirstController::class, 'regisDoc'])->name('regisDoc');
 
 Route::view("/demandeDoc", "demandeDoc");
 Route::post('/demandeDoc', [FirstController::class, 'demandeDoc'])->name('demandeDoc');
 
-
-Route::view("/regisDoc", "regisDoc");
-Route::post('/regisDoc', [FirstController::class, 'regisDoc'])->name('regisDoc');
-
-
 Route::view("/dashboard_patient", "dashboard_patient");
-Route::post('dashboard_patient', [FirstController::class, 'dashboard_patient'])->name('dashboard_patient');
+Route::post('/dashboard_patient', [FirstController::class, 'dashboard_patient'])->name('dashboard_patient');
 
 Route::view("/dashboard_medecin", "dashboard_medecin");
-Route::post("/dashboard_medecin", [FirstController::class, "dashboard_medecin"])->name("dashboard_medecin");
+Route::post('/dashboard_medecin', [FirstController::class, 'dashboard_medecin'])->name('dashboard_medecin');
 
+
+Route::get('/dashboard/patient', function () {
+    return view('dashboard.patient');
+})->name('dashboard.patient');
+
+// Dashboard Médecin
+Route::get('/dashboard/medecin', function () {
+    return view('dashboard.medecin');
+})->name('dashboard.medecin');
+//
+Route::get('/dashboard/admin_dashboard', function () {
+    return view('dashboard.admin_dashboard');
+})->name('dashboard.admin_dashboard');
+
+Route::get('/admin', function() {
+    return view('admin'); // vue admin.blade.php
+})->name('admin.auth');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('quartier');
             $table->enum('sexe', ['Homme', 'Femme']);
             $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

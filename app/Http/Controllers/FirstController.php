@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Medecin;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ForgotpwdMail;
+use Illuminate\Support\Facades\Auth;
 
 class FirstController extends Controller
 {
@@ -22,7 +24,7 @@ class FirstController extends Controller
             "password"      => "required|string|min:6|confirmed",
         ]);
 
-        // Création de l'utilisateur
+        // Creation de l'utilisateur
         User::create([
             "name"          => $validated["name"],
             "email"         => $validated["email"],
@@ -32,9 +34,44 @@ class FirstController extends Controller
             "password"      => Hash::make($validated["password"]),
         ]);
 
-        // Redirection avec message de succès
-        return redirect()->route('land')->with('success', 'Inscription réussie ! Vous pouvez maintenant vous connecter.');
+        // Redirection avec message de succes
+        return redirect()->route('dashboard.patient')->with('success', 'Inscription reussie ! Vous pouvez maintenant vous connecter.');
+
+        
     }
+
+    public function regisDoc(Request $request)
+    {
+
+        $med = Medecin::create([
+            'nom' => $request->nom,
+            'prenom' => $request->prenom,
+            'telephone' => $request->telephone,
+            'email' => $request->email,
+            'hopital' => $request->hopital,
+            'specialite' => $request->specialite,
+            'ville' => $request->ville,
+            'quartier' => $request->quartier,
+            'sexe' => $request->sexe,
+            'password' => Hash::make($request->password),
+        ]);
+
+        Auth::login($med, true);
+        // dd(Auth::user());
+
+        return redirect()->route('dashboard.medecin')->with('success', 'Inscription reussie ! Vous pouvez maintenant vous connecter.')->with(compact($med));
+    }
+
+
+    public function logout(Request $request)
+{
+    Auth::logout();
+
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+
+    return redirect('/land'); // ou vers la page d'accueil
+}
 
     public function connexion(Request $request)
 {
@@ -48,22 +85,22 @@ class FirstController extends Controller
     if (\Illuminate\Support\Facades\Auth::attempt($credentials, $request->filled('remember'))) {
         $request->session()->regenerate();
 
-        // Récupération de l'utilisateur connecté
+        // Recuperation de l'utilisateur connecte
         $user = auth()->user();
 
         // Redirection selon le rôle
         switch ($user->role) {
             case 'admin':
-                return redirect()->route('dashboard')->with('success', 'Bienvenue Administrateur !');
+                return redirect()->route('dashboard.admin_dashboard')->with('success', 'Bienvenue Administrateur !');
             case 'medecin':
-                return redirect()->route('dashboard_medecin')->with('success', 'Bienvenue Docteur !');
+                return redirect()->route('dashboard.medecin')->with('success', 'Bienvenue Docteur !');
             case 'patient':
             default:
-                return redirect()->route('dashboard_patient')->with('success', 'Bienvenue cher patient !');
+                return redirect()->route('dashboard.patient')->with('success', 'Bienvenue cher patient !');
         }
     }
 
-    // Si échec d'authentification
+    // Si echec d'authentification
     return back()->withErrors([
         'email' => 'Email ou mot de passe incorrect.',
     ])->onlyInput('email');
@@ -77,7 +114,7 @@ class FirstController extends Controller
 
         if ($User) {
             Mail::to($User->email)->send(new ForgotpwdMail($User->email));
-            return redirect('/')->with('message', 'Un lien de réinitialisation a été envoyé');
+            return redirect('/')->with('message', 'Un lien de reinitialisation a ete envoye');
         }
 
         return back()->withErrors(['email' => "Cet email n'existe pas dans notre système."]);
@@ -95,10 +132,10 @@ class FirstController extends Controller
         "name" => $validated["name"],
         "email" => $validated["email"],
         "password" => Hash::make($validated["password"]),
-        "role" => "admin", // rôle admin
+        "role" => "admin", // role admin
     ]);
 
-    return redirect()->route('admin.auth')->with('success', 'Compte admin créé ! Vous pouvez vous connecter.');
+    return redirect()->route('admin.auth')->with('success', 'Compte admin cree ! Vous pouvez vous connecter.');
 }
 
 public function adminConnexion(Request $request)
@@ -112,10 +149,10 @@ public function adminConnexion(Request $request)
         $request->session()->regenerate();
 
         if (auth()->user()->role === 'admin') {
-            return redirect()->route('dashboard_admin')->with('success', 'Connexion réussie !');
+            return redirect()->route('dashboard_admin')->with('success', 'Connexion reussie !');
         } else {
             Auth::logout();
-            return back()->withErrors(['email' => "Accès réservé aux administrateurs"]);
+            return back()->withErrors(['email' => "Acces reserve aux administrateurs"]);
         }
     }
 

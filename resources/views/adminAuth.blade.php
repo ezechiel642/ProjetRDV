@@ -45,7 +45,7 @@
         <!-- Header -->
         <div class="card-header text-center text-white py-4">
           <h3 class="mb-1"><i class="fa-solid fa-user-shield me-2"></i> Espace Administrateur</h3>
-          <p class="mb-0">Accédez à votre tableau de bord</p>
+          <p class="mb-0">Accedez a votre tableau de bord</p>
         </div>
 
         <div class="card-body bg-light">
@@ -66,7 +66,7 @@
           <div class="tab-content">
             <!-- Connexion -->
             <div class="tab-pane fade show active" id="login" role="tabpanel">
-              <form method="POST" action="{{ route('adminAuth') }}">
+              <form method="POST" action="{{ route('admin.login') }}">
                 @csrf
                 <div class="mb-3">
                   <label class="form-label">Email</label>
@@ -88,7 +88,7 @@
                     <input class="form-check-input" type="checkbox" id="rememberMe">
                     <label class="form-check-label" for="rememberMe">Se souvenir de moi</label>
                   </div>
-                  <a href="#" class="text-decoration-none">Mot de passe oublié ?</a>
+                  <a href="#" class="text-decoration-none">Mot de passe oublie ?</a>
                 </div>
                 <button class="btn btn-primary w-100 mb-3">
                   <i class="fa-solid fa-right-to-bracket me-2"></i> Se connecter
@@ -98,7 +98,7 @@
 
             <!-- Inscription -->
             <div class="tab-pane fade" id="register" role="tabpanel">
-              <form method="POST" action="{{ route('adminAuth') }}">
+              <form method="POST" action="{{ route('admin.register') }}">
                 @csrf
                 <div class="mb-3">
                   <label class="form-label">Nom complet</label>
@@ -121,7 +121,7 @@
                     <input type="password" class="form-control" id="registerPassword" name="password" placeholder="Créez un mot de passe" required>
                     <span class="input-group-text password-toggle" id="registerPasswordToggle"><i class="fa-solid fa-eye"></i></span>
                   </div>
-                  <div class="form-text">Le mot de passe doit contenir au moins 8 caractères</div>
+                  <div class="form-text">Le mot de passe doit contenir au moins 8 caracteres</div>
                 </div>
                 <div class="mb-3">
                   <label class="form-label">Confirmer le mot de passe</label>
@@ -136,7 +136,7 @@
                   <label class="form-check-label" for="terms">J'accepte les <a href="#">termes et conditions</a></label>
                 </div>
                 <button class="btn btn-primary w-100">
-                  <i class="fa-solid fa-user-plus me-2"></i> Créer le compte
+                  <i class="fa-solid fa-user-plus me-2"></i> Creer le compte
                 </button>
               </form>
             </div>
@@ -145,7 +145,7 @@
 
         <!-- Footer -->
         <div class="card-footer text-center py-3 text-muted">
-          <i class="fa-solid fa-lock me-2"></i> Accès réservé uniquement aux administrateurs
+          <i class="fa-solid fa-lock me-2"></i> Acces reserve uniquement aux administrateurs
         </div>
       </div>
     </div>

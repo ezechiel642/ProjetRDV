@@ -93,10 +93,10 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#">Accueil</a></li>
-          <li class="nav-item"><a class="nav-link" href="#A propos">A propos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-          <li class="nav-item"><a class="nav-link" href="#FAQ">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="land">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="land">A propos</a></li>
+          <li class="nav-item"><a class="nav-link" href="land">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="land">FAQ</a></li>
         </ul>
         <a href="/connection" class="btn btn-outline text-light" style="background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);" >Connexion</a>
        </div>

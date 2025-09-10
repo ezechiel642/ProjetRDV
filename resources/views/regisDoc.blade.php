@@ -65,7 +65,7 @@
   <!-- Formulaire Médecin -->
   <div class="form-container">
     <div class="text-center mb-3">
-      <img src="{{ asset('img/med.png') }}" alt="Médecin" width="100">
+      <img src="{{ asset('img/med.png') }}" alt="Médecin" width="200">
     </div>
 
     <h2 class="form-title">Inscription Medecin</h2>
@@ -117,6 +117,7 @@
             <option>Pediatre</option>
             <option>Cardiologue</option>
             <option>Gynecologue</option>
+            <option>Autre</option>
           </select>
         </div>
 
@@ -129,6 +130,7 @@
             <option>Yaounde</option>
             <option>Bafoussam</option>
             <option>Garoua</option>
+            <option>Autre</option>
           </select>
         </div>
 
@@ -153,7 +155,7 @@
 
         <!-- Mot de passe -->
         <div class="col-md-6">
-          <label for="password" class="form-label">Creer un mot de passe</label>
+          <label for="password" class="form-label">Mot de passe</label>
           <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" required>
         </div>
       </div>
@@ -165,18 +167,16 @@
           <label class="form-check-label" for="conditions">
             J'accepte les <a href="#">conditions generales</a>.
           </label>
+          
         </div>
-        <p class="mb-0">
-          Deja inscrit ? <a href="/connection">Se connecter</a>
-        </p>
+        <p class="mb-0">Deja inscrit ? <a href="/connection">Se connecter</a> </p>
       </div>
 
       <!-- Bouton -->
       <div class="mt-4 text-center">
-        <button type="submit" class="btn btn-submit px-4">S'inscrire</button>
+        <button type="submit" class="btn btn-submit px-4">Envoyer le formulaire</button>
       </div>
     </form>
   </div>
-
 </body>
 </html>

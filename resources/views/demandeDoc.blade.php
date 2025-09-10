@@ -114,18 +114,6 @@
                   </div>
                 </div>
 
-                <!-- Date et Heure -->
-                <div class="row">
-                  <div class="col-md-6 mb-3">
-                    <label for="date" class="form-label fw-semibold">Date souhaitee</label>
-                    <input type="date" id="date" name="date" class="form-control" required>
-                  </div>
-                  <div class="col-md-6 mb-3">
-                    <label for="heure" class="form-label fw-semibold">Horaires</label>
-                    <input type="time" id="heure" name="heure" class="form-control" required>
-                  </div>
-                </div>
-
                 <!-- Medecin -->
                 <div class="mb-3">
                   <label for="medecin" class="form-label fw-semibold">Medecin (optionnel)</label>
@@ -142,9 +130,7 @@
 
                 <!-- Bouton -->
                 <div class="text-center mt-4">
-                  <button type="submit" class="btn-submit">
-                    Envoyer la demande
-                  </button>
+                <a href="{{ route('land') }}" class="btn btn-primary">Suivant <i class="bi bi-arrow-right"></i></a>
                 </div>
 
               </form>

@@ -10,7 +10,7 @@
 <body style="background-color: rgba(0, 123, 255, 0.2); z-index: 1;">
 <main>
         <div class="container d-flex justify-content-center align-items-center min-vh-100" >
-            <div class="card shadow p-4" style="max-width: 900px; width: 100%;  height: 400px; background: linear-gradient(90deg, #0f2027, #203a43, #2c5364)"  >
+            <div class="card shadow p-4" style="max-width: 600px; width: 100%;  height: 400px; background: linear-gradient(90deg, #0f2027, #203a43, #2c5364)"  >
                 <h1 class="mb-3 text-center text-light">Mot de passe oublie ?</h1>
                 <p class="mb-4 text-center text-light">Entrez votre adresse email pour la reinitialisation de votre mot de passe.</p>
                 <form action="" method="post" >

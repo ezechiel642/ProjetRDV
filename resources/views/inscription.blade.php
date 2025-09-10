@@ -257,10 +257,8 @@
 <!-- Mot de passe -->
 <div class="mb-3 password-container">
   <label for="password" class="form-label">Mot de passe</label>
-  <input type="password" name="password" id="password"
-         class="form-control @error('password') is-invalid @enderror"
-         placeholder="Mot de passe" required>
-  <i class="bi bi-eye-slash password-toggle-icon" id="togglePassword"></i>
+  <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Mot de passe" required>
+  <span><i class="bi bi-eye-slash password-toggle-icon" id="togglePassword"></i></span>
   @error('password') <div class="invalid-feedback">{{ $message }}</div> @enderror
 </div>
 

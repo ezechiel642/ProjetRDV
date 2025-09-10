@@ -45,7 +45,7 @@
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button class="btn btn-outline-danger btn-sm" type="submit">
-                        <i class="fa-solid fa-right-from-bracket"></i> Déconnexion
+                        <i class="fa-solid fa-right-from-bracket"></i> Deconnexion
                     </button>
                 </form>
             </div>
@@ -77,7 +77,7 @@
                 <div class="stat-card bg-success shadow-sm text-center">
                     <i class="fa-solid fa-user-doctor fa-2x mb-2"></i>
                     <h4>{{ $medecinsCount ?? 0 }}</h4>
-                    <p class="mb-0">Médecins validés</p>
+                    <p class="mb-0">Medecins valides</p>
                 </div>
             </div>
 
@@ -98,8 +98,8 @@
                 <div class="card shadow-sm h-100 text-center p-3">
                     <i class="fa-solid fa-user-injured fa-3x mb-3 text-primary"></i>
                     <h5 class="card-title">Patients</h5>
-                    <p class="card-text">Voir et gérer tous les patients inscrits.</p>
-                    <a href="{{ route('patients.index') }}" class="btn btn-primary btn-sm">Gérer les patients</a>
+                    <p class="card-text">Voir et gerer tous les patients inscrits.</p>
+                    <a href="#" class="btn btn-primary btn-sm">Gerer les patients</a>
                 </div>
             </div>
 
@@ -107,9 +107,9 @@
             <div class="col-md-4">
                 <div class="card shadow-sm h-100 text-center p-3">
                     <i class="fa-solid fa-user-doctor fa-3x mb-3 text-success"></i>
-                    <h5 class="card-title">Médecins</h5>
-                    <p class="card-text">Valider les inscriptions et gérer les comptes médecins.</p>
-                    <a href="{{ route('medecins.index') }}" class="btn btn-success btn-sm">Gérer les médecins</a>
+                    <h5 class="card-title">Medecins</h5>
+                    <p class="card-text">Valider les inscriptions et gerer les comptes medecins.</p>
+                    <a href="#" class="btn btn-success btn-sm">Gérer les médecins</a>
                 </div>
             </div>
 
@@ -118,8 +118,9 @@
                 <div class="card shadow-sm h-100 text-center p-3">
                     <i class="fa-solid fa-calendar-check fa-3x mb-3 text-warning"></i>
                     <h5 class="card-title">Rendez-vous</h5>
-                    <p class="card-text">Consulter et gérer les rendez-vous médicaux.</p>
-                    <a href="{{ route('rendezvous.index') }}" class="btn btn-warning btn-sm">Gérer les RDV</a>
+                    <p class="card-text">Consulter et gerer les rendez-vous medicaux.</p>
+                    <a href="#" class="btn btn-warning btn-sm">Gérer les RDV</a>
+                    <a href="#" class="btn btn-danger btn-sm">deconnexion</a>
                 </div>
             </div>
         </div>

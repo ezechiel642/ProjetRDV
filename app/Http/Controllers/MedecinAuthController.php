@@ -46,7 +46,7 @@ class MedecinAuthController extends Controller
 
         Auth::guard('medecin')->login($medecin);
 
-        return redirect()->route('medecin.dashboard');
+        return redirect()->route('dashboard.medecin');
     }
 
     // Formulaire de connexion
@@ -61,7 +61,7 @@ class MedecinAuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::guard('medecin')->attempt($credentials)) {
-            return redirect()->route('medecin.dashboard');
+            return redirect()->route('dashboard.medecin');
         }
 
         return back()->withErrors(['email' => 'Identifiants invalides']);
@@ -71,12 +71,12 @@ class MedecinAuthController extends Controller
     public function logout()
     {
         Auth::guard('medecin')->logout();
-        return redirect()->route('medecin.login');
+        return redirect()->route('connection');
     }
 
     // Dashboard
     public function dashboard()
     {
-        return view('dashbord_medecin');
+        return view('dashboard.medecin');
     }
 }
