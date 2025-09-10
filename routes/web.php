@@ -49,13 +49,6 @@ Route::post('/regisDoc', [FirstController::class, 'regisDoc'])->name('regisDoc')
 Route::view("/demandeDoc", "demandeDoc");
 Route::post('/demandeDoc', [FirstController::class, 'demandeDoc'])->name('demandeDoc');
 
-Route::view("/dashboard_patient", "dashboard_patient");
-Route::post('/dashboard_patient', [FirstController::class, 'dashboard_patient'])->name('dashboard_patient');
-
-Route::view("/dashboard_medecin", "dashboard_medecin");
-Route::post('/dashboard_medecin', [FirstController::class, 'dashboard_medecin'])->name('dashboard_medecin');
-
-
 Route::get('/dashboard/patient', function () {
     return view('dashboard.patient');
 })->name('dashboard.patient');
